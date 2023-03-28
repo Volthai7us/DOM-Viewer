@@ -1,0 +1,11 @@
+{
+  "name": "DOM-Viewer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Volthai7us/DOM-Viewer.git",
+  "author": "emirsytrk@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+}

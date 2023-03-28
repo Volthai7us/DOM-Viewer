@@ -1,16 +1,34 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
+    "name": "Translate",
     "description": "Base Level Extension",
     "version": "1.0",
     "action": {
         "default_popup": "popup/popup.html",
         "default_title": "DOM Tracker"
     },
+    "web_accessible_resources": [
+        {
+            "resources": ["scripts/content.css"],
+            "matches": ["https://www.jotform.com/*"]
+        }
+    ],
     "content_scripts": [
         {
             "js": ["scripts/content.js"],
+            "css": ["scripts/content.css"],
             "matches": ["https://www.jotform.com/*"]
         }
-    ]
+    ],
+
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "icons": {
+        "16": "images/logo/icon-16x16.png",
+        "32": "images/logo/icon-32x32.png",
+        "48": "images/logo/icon-48x48.png",
+        "128": "images/logo/icon-128x128.png"
+    }
 }

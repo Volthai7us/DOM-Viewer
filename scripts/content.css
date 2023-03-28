@@ -1,0 +1,26 @@
+.not_in_new {
+    border: 2px solid #ff0000 !important;
+    position: relative;
+}
+
+.not_in_properties {
+    border: 2px solid #0000ff !important;
+}
+
+.translate_checkbox {
+    position: absolute;
+    left: -10px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
+    background-color: aliceblue;
+}
+
+.checked {
+    background-color: green;
+}
+
+.in_translated {
+    border: 2px solid #00ff00 !important;
+}

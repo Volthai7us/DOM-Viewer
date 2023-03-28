@@ -2,9 +2,59 @@
 <html>
     <head>
         <title>DOM Tracker</title>
+        <link rel="stylesheet" href="output.css" />
     </head>
-    <body>
-        <h1>DOM Tracker 1.0</h1>
+    <body class="h-[20rem] border-black border-2 w-[20rem] p-2 bg-stone-200">
+        <div class="flex flex-col h-full justify-around items-center space-y-4">
+            <img
+                src="/images/jotform-icon-transparent-560x560.png"
+                alt="Jotform"
+                class="w-1/4"
+            />
+            <div class="flex flex-col justify-center">
+                <span id="candidateNumber" class="text-center text-4xl">
+                    0
+                </span>
+                <span class="text-center text-2xl">Selected Words</span>
+            </div>
+            <div class="flex flex-row justify-around space-x-2">
+                <select
+                    id="jfFooterLanguage"
+                    name="jfFooterLanguage"
+                    class="bg-stone-200 w-1/2 border-black border-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent py-1 px-2"
+                >
+                    <option value="en-US">en-US</option>
+                    <option value="es-ES">es-ES</option>
+                    <option value="fr-FR">fr-FR</option>
+                    <option value="it-IT">it-IT</option>
+                    <option value="pt-PT">pt-PT</option>
+                    <option value="de-DE">de-DE</option>
+                    <option value="tr-TR">tr-TR</option>
+                    <option value="nl-NL">nl-NL</option>
+                    <option value="hu-HU">hu-HU</option>
+                    <option value="fi-FI">fi-FI</option>
+                    <option value="pl-PL">pl-PL</option>
+                    <option value="ru-RU">ru-RU</option>
+                    <option value="ja-JP">ja-JP</option>
+                    <option value="uk-UA">uk-UA</option>
+                    <option value="bg-BG">bg-BG</option>
+                    <option value="sr-BA">sr-BA</option>
+                    <option value="ka-GE">ka-GE</option>
+                    <option value="id-ID">id-ID</option>
+                    <option value="ar-AR">ar-AR</option>
+                    <option value="ko-KR">ko-KR</option>
+                    <option value="zh-HK">zh-HK - Beta</option>
+                    <option value="af-ZA">af-ZA - Beta</option>
+                    <option value="he-IL">he-IL - Beta</option>
+                </select>
+                <button
+                    class="border-black w-1/2 px-2 py-1 border-2 rounded-xl bg-stone-200 hover:bg-stone-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent active:bg-stone-400"
+                    id="translate"
+                >
+                    Translate
+                </button>
+            </div>
+        </div>
         <div id="tracker"></div>
     </body>
     <script src="popup.js"></script>

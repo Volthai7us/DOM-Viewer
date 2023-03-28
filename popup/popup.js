@@ -1,19 +1,52 @@
-const tracker = document.getElementById('tracker')
+// document.addEventListener('DOMContentLoaded', function () {
+//     chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+//         var activeTab = tabs[0]
+//         console.log(tabs)
+//         chrome.tabs.sendMessage(activeTab.id, { action: 'fetch' })
+//     })
+// })
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    // while (tracker.firstChild) {
-    //     tracker.removeChild(tracker.firstChild)
-    // }
+// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+//     const tracker = document.getElementById('tracker')
+//     const spanNode = document.createElement('span')
+//     spanNode.innerHTML = request
+//     tracker.appendChild(spanNode)
+// })
 
-    // console.log(request)
+let id
+let candidateNumber = 0
 
-    // const texts = request
+document.addEventListener('DOMContentLoaded', function () {
+    chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+        var activeTab = tabs[0]
+        console.log(tabs)
+        id = activeTab.id
+        chrome.tabs.sendMessage(activeTab.id, { action: 'fetch' })
+    })
 
-    // for (let i = 0; i < texts.length; i++) {
-    //     const textNode = document.createTextNode(texts[i])
-    //     tracker.appendChild(textNode)
-    // }
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        if (request.action === 'sync') {
+            candidateNumber = request.candidateNumber
+            language = request.language
+            document.getElementById('candidateNumber').innerHTML =
+                candidateNumber
+            document.getElementById('jfFooterLanguage').value = language
+        }
+    })
 
-    const textNode = document.createTextNode(request)
-    tracker.appendChild(textNode)
+    document
+        .getElementById('jfFooterLanguage')
+        .addEventListener('change', function () {
+            sendLanguage(this.value)
+        })
+    document.getElementById('translate').addEventListener('click', function () {
+        chrome.tabs.sendMessage(id, { action: 'translate' })
+    })
 })
+
+function sendLanguage(language) {
+    chrome.tabs.sendMessage(id, {
+        action: 'language',
+        language: language,
+    })
+}
